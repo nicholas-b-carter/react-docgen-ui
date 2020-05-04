@@ -3,9 +3,10 @@
   "version": "0.5.1",
   "main": "dist/index.js",
   "scripts": {
-    "prepublish": "gulp pre-publish",
+    "prepublish": "npm run snyk-protect && gulp pre-publish",
     "deploy-example": "NODE_ENV=production gulp build && gulp deploy-gh-pages",
-    "test": "gulp lint && gulp mocha --cover"
+    "test": "gulp lint && gulp mocha --cover",
+    "snyk-protect": "snyk protect"
   },
   "author": "Morlay",
   "license": "WTFPL",
@@ -72,7 +73,8 @@
     "react-docgen": "^2.4.0",
     "react-dom": "^0.14.3",
     "react-resizable": "^1.0.1",
-    "through2": "^2.0.0"
+    "through2": "^2.0.0",
+    "snyk": "^1.317.0"
   },
   "optionalDependencies": {
     "react-router": "1.0.2",
@@ -82,5 +84,6 @@
   },
   "engines": {
     "node": ">=4.0"
-  }
+  },
+  "snyk": true
 }
